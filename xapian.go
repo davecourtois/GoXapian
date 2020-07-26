@@ -12,8 +12,8 @@
 
 package xapian
 
-//#cgo LDFLAGS:  -L/usr/local/lib -lxapian
-//#cgo CFLAGS: -g -O3 -fno-stack-protector
+//#cgo LDFLAGS:  -LE:/xapian/Xapian/lib -lxapian  -lws2_32 -lrpcrt4 -lz
+//#cgo CPPFLAGS: -g -O3 -fno-stack-protector -IE:/xapian/xapian-core-1.4.7/include
 /*
 #define intgo swig_intgo
 typedef void *swig_voidp;
@@ -1450,9 +1450,11 @@ extern uintptr_t _wrap_remote_open_writable__SWIG_6_xapian_245a1afe1629f0b1(swig
 */
 import "C"
 
-import "unsafe"
-import _ "runtime/cgo"
-import "sync"
+import (
+	_ "runtime/cgo"
+	"sync"
+	"unsafe"
+)
 
 type _ unsafe.Pointer
 

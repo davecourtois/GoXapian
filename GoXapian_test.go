@@ -31,14 +31,17 @@ func TestGeneric1(t *testing.T) {
 	if stem.Get_description() != "Xapian::Stem(english)" {
 		t.Errorf("Unexpected str(stem)")
 	}
+
 	doc := NewDocument()
 	doc.Set_data("a\x00b")
 	if doc.Get_data() == "a" {
 		t.Errorf("get_data+set_data truncates at a zero byte")
 	}
+
 	if doc.Get_data() != "a\x00b" {
 		t.Errorf("get_data+set_data doesn't transparently handle a zero byte")
 	}
+
 	doc.Set_data("is there anybody out there?")
 	doc.Add_term("XYzzy")
 	doc.Add_posting(stem.Apply("is"), uint(1))

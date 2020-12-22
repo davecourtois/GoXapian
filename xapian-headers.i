@@ -266,6 +266,21 @@ STANDARD_IGNORES(Xapian, MSet)
     Xapian::percent get_document_percentage(Xapian::doccount i) const {
 	return self->convert_to_percent((*self)[i]);
     }
+    
+    std::string  snippet(const std::string & text,
+	size_t length = 500,
+	const Xapian::Stem & stemmer = Xapian::Stem(),
+	unsigned flags = 1|2,
+	const std::string & hi_start = "<b>",
+	const std::string & hi_end = "</b>",
+	const std::string & omit = "...") const{
+		return self->snippet(text, length, stemmer, flags, hi_start, hi_end, omit);
+	}
+	
+	Xapian::doccount size() const{
+		return self->size();
+	}
+    
 }
 
 STANDARD_IGNORES(Xapian, ESet)

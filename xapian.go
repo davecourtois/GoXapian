@@ -16,7 +16,7 @@
 
 package xapian
 
-//#cgo LDFLAGS:  -L/us/local/lib -lxapian -lz
+//#cgo LDFLAGS:  -L/usr/local/lib -lxapian -lz
 //#cgo CPPFLAGS: -g -O3 -fno-stack-protector  -I/usr/local/include
 /*
 #define intgo swig_intgo
